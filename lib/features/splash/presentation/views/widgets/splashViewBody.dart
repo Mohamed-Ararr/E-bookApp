@@ -13,18 +13,15 @@ class SplashViewBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Spacer(flex: 3),
+            // font for bookly is neucha
             Image.asset(
-              AppImages.logo,
-              color: Colors.white,
-              scale: 0.45,
+              "assets/logoApp.png",
+              width: MediaQuery.of(context).size.width * 0.6,
             ),
-            const SizedBox(height: 15),
-            const Text(
-              'Read you desired book for free!',
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
+            const Spacer(flex: 1),
+            const CircularProgressIndicator(color: Colors.white30),
+            const Spacer(flex: 3),
           ],
         ),
       ),
