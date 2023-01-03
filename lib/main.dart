@@ -1,3 +1,4 @@
+import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,7 @@ class BookApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData().copyWith(
-        scaffoldBackgroundColor: const Color(0xff100B20),
+        scaffoldBackgroundColor: kPrimaryColor,
       ),
       debugShowCheckedModeBanner: false,
       home: const SplashView(),
