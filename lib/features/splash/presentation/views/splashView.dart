@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:bookstore/features/splash/presentation/views/widgets/splashViewBody.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatelessWidget {
@@ -7,6 +8,8 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: SplashViewBody(),
+    );
   }
 }
