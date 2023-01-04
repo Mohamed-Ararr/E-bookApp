@@ -1,10 +1,31 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/core/utilities/assets.dart';
+import 'package:bookstore/constants.dart';
+import 'package:bookstore/features/home/data/presentation/views/homeView.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => Get.to(
+        const HomeView(),
+        transition: Transition.circularReveal,
+        duration: kTransitionDuration,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
