@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/features/home/data/presentation/views/widgets/splashViewBody.dart';
+import 'package:bookstore/features/home/data/presentation/views/widgets/homeViewBody.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
