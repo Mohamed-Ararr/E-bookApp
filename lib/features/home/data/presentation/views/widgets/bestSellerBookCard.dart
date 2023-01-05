@@ -9,14 +9,17 @@ class BestSellerBookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 130,
-      child: Row(
-        children: const [
-          BestSellerBookCover(),
-          SizedBox(width: 15),
-          BestSellerBookInfo(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: SizedBox(
+        height: 130,
+        child: Row(
+          children: const [
+            BestSellerBookCover(),
+            SizedBox(width: 15),
+            BestSellerBookInfo(),
+          ],
+        ),
       ),
     );
   }
