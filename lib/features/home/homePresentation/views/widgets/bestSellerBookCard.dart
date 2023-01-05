@@ -2,6 +2,7 @@
 
 import 'bestSellerBookCover.dart';
 import 'bestSellerBookInfo.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerBookCard extends StatelessWidget {
@@ -10,7 +11,7 @@ class BestSellerBookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => GoRouter.of(context).push("/bookDetails"),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: SizedBox(

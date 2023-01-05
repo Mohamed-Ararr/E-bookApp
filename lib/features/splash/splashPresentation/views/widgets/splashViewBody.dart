@@ -1,11 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:bookstore/constants.dart';
-
-import '../../../../home/homePresentation/views/homeView.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -25,11 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void animatedNavigationToHome() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.to(
-        () => const HomeView(),
-        transition: Transition.circularReveal,
-        duration: kTransitionDuration,
-      ),
+      () => GoRouter.of(context).push("/homeView"),
     );
   }
 
