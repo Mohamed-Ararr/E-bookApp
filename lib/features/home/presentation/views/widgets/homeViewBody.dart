@@ -4,9 +4,9 @@ import 'package:bookstore/constants.dart';
 import 'package:bookstore/core/utilities/fontStyles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../homePresentation/views/widgets/bestSellerBooksListView.dart';
-import '../../../homePresentation/views/widgets/booksListView.dart';
-import '../../../homePresentation/views/widgets/customAppBar.dart';
+import '../../../homePresentation/views/widgets/homeWidgets/bestSellerBooksListView.dart';
+import '../../../homePresentation/views/widgets/homeWidgets/booksListView.dart';
+import '../../../homePresentation/views/widgets/homeWidgets/customAppBar.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
