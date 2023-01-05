@@ -10,7 +10,8 @@ class BooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      padding: const EdgeInsets.only(left: 10),
       height: MediaQuery.of(context).size.height * 0.3,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

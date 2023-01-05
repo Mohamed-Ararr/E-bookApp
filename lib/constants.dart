@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xff100B20);
 const kTransitionDuration = Duration(seconds: 1);
-const kPaddingLeftRight = EdgeInsets.symmetric(horizontal: 20);
+const kPaddingLeftRight = EdgeInsets.symmetric(horizontal: 15);
 BorderRadius kBorderRadius = BorderRadius.circular(10);
