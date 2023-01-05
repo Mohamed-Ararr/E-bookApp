@@ -1,9 +1,11 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/constants.dart';
-import 'package:bookstore/features/home/data/presentation/views/homeView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'package:bookstore/constants.dart';
+
+import '../../../../home/homePresentation/views/homeView.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/features/splash/presentation/views/widgets/splashViewBody.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/splashViewBody.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);

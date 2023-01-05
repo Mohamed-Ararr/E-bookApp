@@ -17,21 +17,24 @@ class BookCard extends StatefulWidget {
 class _BookCardState extends State<BookCard> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.3,
-          width: MediaQuery.of(context).size.width * 0.37,
-          child: ClipRRect(
-            borderRadius: kBorderRadius,
-            child: Image.asset(
-              widget.imageUrl,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {},
+      child: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: MediaQuery.of(context).size.width * 0.37,
+            child: ClipRRect(
+              borderRadius: kBorderRadius,
+              child: Image.asset(
+                widget.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        const PositionPlayButton(),
-      ],
+          const PositionPlayButton(),
+        ],
+      ),
     );
   }
 }

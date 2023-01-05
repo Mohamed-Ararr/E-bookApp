@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'features/splash/presentation/views/splashView.dart';
+import 'features/splash/splashPresentation/views/splashView.dart';
 
 void main() {
   runApp(const BookApp());

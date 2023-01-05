@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/features/home/data/presentation/views/widgets/bestSellerBookCard.dart';
 import 'package:flutter/material.dart';
+
+import 'bestSellerBookCard.dart';
 
 class BestSellerBooksListView extends StatelessWidget {
   const BestSellerBooksListView({Key? key}) : super(key: key);
