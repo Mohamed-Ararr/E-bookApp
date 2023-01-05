@@ -5,6 +5,8 @@ import '../../features/home/homePresentation/views/homeView.dart';
 import '../../features/splash/splashPresentation/views/splashView.dart';
 
 abstract class AppRoutes {
+  static String homeRoute = "/homeView";
+  static String bookRoute = "/bookDetails";
   static final router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
@@ -12,11 +14,11 @@ abstract class AppRoutes {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: '/homeView',
+        path: homeRoute,
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: '/bookDetails',
+        path: bookRoute,
         builder: (context, state) => const BookView(),
       ),
     ],

@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:bookstore/core/utilities/routes.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -22,7 +23,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void animatedNavigationToHome() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => GoRouter.of(context).push("/homeView"),
+      () => GoRouter.of(context).push(AppRoutes.homeRoute),
     );
   }
 

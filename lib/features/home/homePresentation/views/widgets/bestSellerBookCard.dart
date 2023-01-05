@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:bookstore/core/utilities/routes.dart';
+
 import 'bestSellerBookCover.dart';
 import 'bestSellerBookInfo.dart';
 import 'package:go_router/go_router.dart';
@@ -11,7 +13,7 @@ class BestSellerBookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => GoRouter.of(context).push("/bookDetails"),
+      onTap: () => GoRouter.of(context).push(AppRoutes.bookRoute),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: SizedBox(
