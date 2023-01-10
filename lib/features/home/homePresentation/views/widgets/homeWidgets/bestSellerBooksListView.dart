@@ -13,7 +13,7 @@ class BestSellerBooksListView extends StatelessWidget {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 3,
+      itemCount: 15,
       itemBuilder: (context, index) => const BestSellerBookCard(),
     );
   }
