@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:bookstore/features/search/presentation/views/widgets/searchResultSection.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bookstore/constants.dart';
@@ -23,20 +24,11 @@ class SearchView extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              const SizedBox(height: 10),
-              const CustomTextField(),
-              const SizedBox(height: 10),
-              Container(
-                padding: kPaddingLeftRight,
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  'Search result',
-                  style: FontStyles.mediumTitleRegular20,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const SearchBookListView(),
+            children: const [
+              SizedBox(height: 10),
+              CustomTextField(),
+              SizedBox(height: 10),
+              SearchResultSection()
             ],
           ),
         ),
