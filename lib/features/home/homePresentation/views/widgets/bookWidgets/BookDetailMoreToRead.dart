@@ -1,24 +1,29 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/core/utilities/assets.dart';
 import 'package:flutter/material.dart';
 
-import 'bookCard.dart';
+import '../../../../../../core/utilities/assets.dart';
+import '../homeWidgets/bookCard.dart';
 
-class BooksListView extends StatelessWidget {
-  const BooksListView({Key? key}) : super(key: key);
+class BookMoreToRead extends StatelessWidget {
+  const BookMoreToRead({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 20),
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.22,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: AppImages.bookCoverImages.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: BookCard(imageUrl: AppImages.bookCoverImages[index]),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.25,
+            child: BookCard(
+              imageUrl: AppImages.bookCoverImages[index],
+            ),
+          ),
         ),
       ),
     );

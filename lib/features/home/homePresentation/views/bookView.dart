@@ -2,7 +2,7 @@
 
 import "package:flutter/material.dart";
 
-import 'widgets/bookViewBody.dart';
+import 'widgets/bookWidgets/bookViewBody.dart';
 
 class BookView extends StatelessWidget {
   const BookView({Key? key}) : super(key: key);
