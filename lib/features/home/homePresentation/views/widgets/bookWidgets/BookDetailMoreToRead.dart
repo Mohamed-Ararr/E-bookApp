@@ -12,14 +12,14 @@ class BookMoreToRead extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 20),
-      height: MediaQuery.of(context).size.height * 0.22,
+      height: 150, //MediaQuery.of(context).size.height * 0.20,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: AppImages.bookCoverImages.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.25,
+            width: MediaQuery.of(context).size.width * 0.23,
             child: BookCard(
               imageUrl: AppImages.bookCoverImages[index],
             ),
