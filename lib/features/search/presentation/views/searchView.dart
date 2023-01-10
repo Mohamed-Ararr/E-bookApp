@@ -3,11 +3,7 @@
 import 'package:bookstore/features/search/presentation/views/widgets/searchResultSection.dart';
 import 'package:flutter/material.dart';
 
-import 'package:bookstore/constants.dart';
-import 'package:bookstore/core/utilities/fontStyles.dart';
 import 'package:bookstore/features/search/presentation/views/widgets/customTextField.dart';
-
-import 'widgets/searchBookListView.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
