@@ -1,8 +1,12 @@
-// ignore_for_file: file_names
+// ignore_for_file: depend_on_referenced_packages
 
-import 'package:bookstore/features/home/data/homeRepo/homeRepo.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'featuredbooksStates.dart';
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+
+import '../../../data/homeRepo/homeRepo.dart';
+import '../../../data/models/book_model/book_model.dart';
+
+part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit {
   FeaturedBooksCubit(this.homeRepo) : super(FeaturedBooksInitial());

@@ -1,9 +1,12 @@
+// ignore_for_file: file_names
+
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+
 import 'package:bookstore/core/errors/failure.dart';
 import 'package:bookstore/core/utilities/apiService.dart';
 import 'package:bookstore/features/home/data/homeRepo/homeRepo.dart';
-import 'package:dartz/dartz.dart';
 import 'package:bookstore/features/home/data/models/book_model/book_model.dart';
-import 'package:dio/dio.dart';
 
 class HomeRepoImplem implements HomeRepo {
   ApiService apiService;
