@@ -1,12 +1,27 @@
 import 'package:bookstore/core/errors/failure.dart';
+import 'package:bookstore/core/utilities/apiService.dart';
 import 'package:bookstore/features/home/data/homeRepo/homeRepo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:bookstore/features/home/data/models/book_model/book_model.dart';
 
 class HomeRepoImplem implements HomeRepo {
+  ApiService apiService;
+
+  HomeRepoImplem(this.apiService);
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBestSellerdBooks() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              "volumes?q=subject:programming&Filtering=free-ebooks&Sorting=newest");
+      List<BookModel> newestBooks = [];
+      for (var item in data["items"]) {
+        newestBooks.add(BookModel.fromJson(item));
+      }
+      return right(newestBooks);
+    } catch (e) {
+      return left(ServerFailure());
+    }
   }
 
   @override
