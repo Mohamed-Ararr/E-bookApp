@@ -3,6 +3,7 @@ import 'package:bookstore/core/utilities/apiService.dart';
 import 'package:bookstore/features/home/data/homeRepo/homeRepo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:bookstore/features/home/data/models/book_model/book_model.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImplem implements HomeRepo {
   ApiService apiService;
@@ -20,7 +21,10 @@ class HomeRepoImplem implements HomeRepo {
       }
       return right(newestBooks);
     } catch (e) {
-      return left(ServerFailure());
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
