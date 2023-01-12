@@ -3,18 +3,19 @@
 import 'package:bookstore/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'positionPlayButton.dart';
-
 class BookCard extends StatefulWidget {
   const BookCard({Key? key, required this.imageUrl}) : super(key: key);
 
-  final String imageUrl;
+  final String? imageUrl;
 
   @override
   State<BookCard> createState() => _BookCardState();
 }
 
 class _BookCardState extends State<BookCard> {
+  final String noCoverBookImageLink =
+      "https://bookopolis.com/img/no_book_cover.jpg";
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -24,9 +25,9 @@ class _BookCardState extends State<BookCard> {
         width: MediaQuery.of(context).size.width * 0.37,
         child: ClipRRect(
           borderRadius: kBorderRadius,
-          child: Image.asset(
-            widget.imageUrl,
-            fit: BoxFit.cover,
+          child: Image.network(
+            widget.imageUrl ?? noCoverBookImageLink,
+            fit: BoxFit.fill,
           ),
         ),
       ),

@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:bookstore/constants.dart';
 
 class BestSellerBookCover extends StatelessWidget {
-  const BestSellerBookCover({Key? key}) : super(key: key);
+  const BestSellerBookCover({Key? key, required this.imageLink})
+      : super(key: key);
+
+  final String? imageLink;
+  final String noCoverBookImageLink =
+      "https://bookopolis.com/img/no_book_cover.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +19,9 @@ class BestSellerBookCover extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: kBorderRadius,
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage('assets/book1.jpg'),
+            image: NetworkImage(imageLink ?? noCoverBookImageLink),
           ),
         ),
       ),

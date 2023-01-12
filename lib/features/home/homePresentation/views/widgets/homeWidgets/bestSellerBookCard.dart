@@ -8,7 +8,9 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerBookCard extends StatelessWidget {
-  const BestSellerBookCard({Key? key}) : super(key: key);
+  const BestSellerBookCard({Key? key, this.imageLink}) : super(key: key);
+
+  final String? imageLink;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +21,10 @@ class BestSellerBookCard extends StatelessWidget {
         child: SizedBox(
           height: 130,
           child: Row(
-            children: const [
-              BestSellerBookCover(),
-              SizedBox(width: 15),
-              BestSellerBookInfo(),
+            children: [
+              BestSellerBookCover(imageLink: imageLink),
+              const SizedBox(width: 15),
+              const BestSellerBookInfo(),
             ],
           ),
         ),
