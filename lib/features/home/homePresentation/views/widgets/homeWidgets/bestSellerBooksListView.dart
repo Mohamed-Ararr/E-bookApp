@@ -17,16 +17,21 @@ class BestSellerBooksListView extends StatelessWidget {
         if (state is NewestBooksSuccess) {
           return ListView.builder(
             shrinkWrap: true,
-            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: state.booksList.length,
             itemBuilder: (context, index) => BestSellerBookCard(
-              imageLink:
-                  state.booksList[index].volumeInfo.imageLinks.smallThumbnail,
+              bookModel: state.booksList[index],
             ),
           );
         } else if (state is NewestBooksFailure) {
-          return Text(state.errorMsg);
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error),
+              const SizedBox(width: 8),
+              Text(state.errorMsg),
+            ],
+          );
         } else {
           return const CustomCircularIndicator();
         }

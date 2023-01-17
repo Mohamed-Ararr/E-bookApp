@@ -1,20 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:bookstore/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class BookCard extends StatefulWidget {
+class BookCard extends StatelessWidget {
   const BookCard({Key? key, required this.imageUrl}) : super(key: key);
 
-  final String? imageUrl;
-
-  @override
-  State<BookCard> createState() => _BookCardState();
-}
-
-class _BookCardState extends State<BookCard> {
-  final String noCoverBookImageLink =
-      "https://bookopolis.com/img/no_book_cover.jpg";
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +18,18 @@ class _BookCardState extends State<BookCard> {
         width: MediaQuery.of(context).size.width * 0.37,
         child: ClipRRect(
           borderRadius: kBorderRadius,
-          child: Image.network(
-            widget.imageUrl ?? noCoverBookImageLink,
+          child: CachedNetworkImage(
             fit: BoxFit.fill,
+            imageUrl: imageUrl,
+            errorWidget: (context, url, error) {
+              debugPrint(error.toString());
+              return Container(
+                color: Colors.grey.withAlpha(100),
+                child: const Center(
+                  child: Icon(Icons.error_outline, size: 40),
+                ),
+              );
+            },
           ),
         ),
       ),

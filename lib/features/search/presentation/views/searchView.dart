@@ -19,6 +19,7 @@ class SearchView extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: const [
               SizedBox(height: 10),

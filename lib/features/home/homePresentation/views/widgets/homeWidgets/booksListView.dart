@@ -31,7 +31,14 @@ class BooksListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Text(state.errorMsg);
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error),
+              const SizedBox(width: 8),
+              Text(state.errorMsg),
+            ],
+          );
         } else {
           return const CustomCircularIndicator();
         }
