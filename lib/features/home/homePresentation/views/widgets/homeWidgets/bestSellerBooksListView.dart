@@ -21,7 +21,8 @@ class BestSellerBooksListView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: state.booksList.length,
             itemBuilder: (context, index) => BestSellerBookCard(
-              imageLink: state.booksList[index].volumeInfo.imageLinks.thumbnail,
+              imageLink:
+                  state.booksList[index].volumeInfo.imageLinks.smallThumbnail,
             ),
           );
         } else if (state is NewestBooksFailure) {

@@ -19,6 +19,7 @@ class BooksListView extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             height: MediaQuery.of(context).size.height * 0.3,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.booksList.length,
               itemBuilder: (context, index) => Padding(

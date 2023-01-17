@@ -21,6 +21,7 @@ class BookMoreToRead extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20),
             height: 150,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.booksList.length,
               itemBuilder: (context, index) => Padding(
@@ -28,8 +29,8 @@ class BookMoreToRead extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.23,
                   child: BookCard(
-                    imageUrl:
-                        state.booksList[index].volumeInfo.imageLinks.thumbnail,
+                    imageUrl: state
+                        .booksList[index].volumeInfo.imageLinks.smallThumbnail,
                   ),
                 ),
               ),
