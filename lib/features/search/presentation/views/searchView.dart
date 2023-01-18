@@ -24,7 +24,7 @@ class SearchView extends StatelessWidget {
             children: const [
               SizedBox(height: 10),
               CustomTextField(),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               SearchResultSection()
             ],
           ),

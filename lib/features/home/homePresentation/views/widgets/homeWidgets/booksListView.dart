@@ -1,10 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:bookstore/core/widgets/customCircularIndicator.dart';
+import 'package:bookstore/core/widgets/errorMessageFailure.dart';
 import 'package:bookstore/features/home/homePresentation/bloc%20manager/featuredBooksCubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
+import '../../../../../../constants.dart';
 import 'bookCard.dart';
 
 class BooksListView extends StatelessWidget {
@@ -31,18 +34,48 @@ class BooksListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error),
-              const SizedBox(width: 8),
-              Text(state.errorMsg),
-            ],
+          return Padding(
+            padding: kPaddingLeftRight,
+            child: ErrorMessageFailure(errorMsg: state.errorMsg),
           );
         } else {
-          return const CustomCircularIndicator();
+          return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                FeaturedBoxShimmer(),
+                FeaturedBoxShimmer(),
+                FeaturedBoxShimmer(),
+              ],
+            ),
+          );
         }
       },
+    );
+  }
+}
+
+class FeaturedBoxShimmer extends StatelessWidget {
+  const FeaturedBoxShimmer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 20),
+      height: MediaQuery.of(context).size.height * 0.3,
+      width: MediaQuery.of(context).size.width * 0.37,
+      child: Shimmer.fromColors(
+        baseColor: Colors.white54,
+        highlightColor: Colors.white70,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: kBorderRadius,
+            color: Colors.white54,
+          ),
+        ),
+      ),
     );
   }
 }

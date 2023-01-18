@@ -1,15 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:bookstore/constants.dart';
-import 'package:bookstore/core/widgets/customCircularIndicator.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:bookstore/core/widgets/errorMessageFailure.dart';
 import 'package:bookstore/features/home/homePresentation/bloc%20manager/newestBooksCubit/newest_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../core/utilities/fontStyles.dart';
-import '../../../../../../core/widgets/LoadingBookShimmer.dart';
 import '../../../../../../core/widgets/newestBooksLoadingBox.dart';
 import 'bestSellerBookCard.dart';
 
@@ -30,17 +27,7 @@ class BestSellerBooksListView extends StatelessWidget {
             ),
           );
         } else if (state is NewestBooksFailure) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error),
-              const SizedBox(width: 8),
-              Text(
-                state.errorMsg,
-                style: FontStyles.mediumTitleSemiBold20,
-              ),
-            ],
-          );
+          return ErrorMessageFailure(errorMsg: state.errorMsg);
         } else {
           return const NewestBooksLoadingBox();
         }

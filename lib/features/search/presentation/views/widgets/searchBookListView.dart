@@ -1,6 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:bookstore/core/widgets/customCircularIndicator.dart';
+import 'package:bookstore/core/widgets/errorMessageFailure.dart';
+import 'package:bookstore/core/widgets/newestBooksLoadingBox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,9 +35,12 @@ class SearchBookListView extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Text(state.errorMsg);
+          return ErrorMessageFailure(errorMsg: state.errorMsg);
         } else {
-          return const CustomCircularIndicator();
+          return const Padding(
+            padding: kPaddingLeftRight,
+            child: NewestBooksLoadingBox(),
+          );
         }
       }),
     );

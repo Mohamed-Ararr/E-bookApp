@@ -21,7 +21,7 @@ class SearchResultSection extends StatelessWidget {
             style: FontStyles.mediumTitleRegular20,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 15),
         const SearchBookListView(),
       ],
     );
