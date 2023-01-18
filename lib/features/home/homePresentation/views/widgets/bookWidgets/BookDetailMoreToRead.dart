@@ -5,6 +5,7 @@ import 'package:bookstore/features/home/homePresentation/bloc%20manager/featured
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../bloc manager/moreBooksCubit/more_books_cubit.dart';
 import '../homeWidgets/bookCard.dart';
 
 class BookMoreToRead extends StatelessWidget {
@@ -14,9 +15,9 @@ class BookMoreToRead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeaturedBooksCubit, FeaturedBooksStates>(
+    return BlocBuilder<MoreBooksCubit, MoreBooksState>(
       builder: (context, state) {
-        if (state is FeaturedBooksSuccess) {
+        if (state is MoreBooksSuccess) {
           return Container(
             padding: const EdgeInsets.only(left: 20),
             height: 150,
@@ -29,14 +30,15 @@ class BookMoreToRead extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.23,
                   child: BookCard(
-                    imageUrl: state
-                        .booksList[index].volumeInfo.imageLinks.smallThumbnail,
+                    imageUrl: state.booksList[index].volumeInfo.imageLinks
+                            ?.smallThumbnail ??
+                        noCoverBookImageLink,
                   ),
                 ),
               ),
             ),
           );
-        } else if (state is FeaturedBooksFailure) {
+        } else if (state is MoreBooksFailure) {
           return Text(state.errorMsg);
         } else {
           return const CustomCircularIndicator();

@@ -13,6 +13,8 @@ class BestSellerBookCard extends StatelessWidget {
       : super(key: key);
 
   final BookModel bookModel;
+  final String noCoverBookImageLink =
+      "https://bookopolis.com/img/no_book_cover.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,8 @@ class BestSellerBookCard extends StatelessWidget {
           child: Row(
             children: [
               BestSellerBookCover(
-                  imageUrl: bookModel.volumeInfo.imageLinks.thumbnail!),
+                  imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                      noCoverBookImageLink),
               const SizedBox(width: 15),
               BestSellerBookInfo(bookModel: bookModel),
             ],

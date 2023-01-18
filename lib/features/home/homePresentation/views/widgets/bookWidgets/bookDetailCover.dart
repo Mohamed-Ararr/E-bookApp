@@ -1,11 +1,16 @@
 // ignore_for_file: file_names
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../constants.dart';
 
 class BookDetailCover extends StatelessWidget {
-  const BookDetailCover({super.key});
+  const BookDetailCover({super.key, required this.imageUrl});
+
+  final String? imageUrl;
+  final String noCoverBookImageLink =
+      "https://bookopolis.com/img/no_book_cover.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +19,9 @@ class BookDetailCover extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.37,
       child: ClipRRect(
         borderRadius: kBorderRadius,
-        child: Image.asset(
-          "assets/book2.jpg",
-          fit: BoxFit.cover,
+        child: CachedNetworkImage(
+          fit: BoxFit.fill,
+          imageUrl: imageUrl ?? noCoverBookImageLink,
         ),
       ),
     );

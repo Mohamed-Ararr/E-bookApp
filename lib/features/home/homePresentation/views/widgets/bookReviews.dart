@@ -6,26 +6,30 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utilities/fontStyles.dart';
 
 class BookReviews extends StatelessWidget {
-  const BookReviews({super.key});
+  const BookReviews(
+      {super.key, required this.rating, required this.ratingCount});
+
+  final String? rating;
+  final String? ratingCount;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(
+      children: [
+        const Icon(
           FontAwesomeIcons.solidStar,
           size: 16,
           color: Color.fromARGB(255, 255, 230, 0),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
-          '4.8',
+          rating ?? "0",
           style: FontStyles.mediumTitleRegular20,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Text(
-          "(2390)",
+          "( ${ratingCount ?? "0"} )",
           style: FontStyles.subTitle15,
         ),
       ],
