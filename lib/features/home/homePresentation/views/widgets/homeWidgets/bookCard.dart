@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:bookstore/constants.dart';
+import 'package:bookstore/core/widgets/customCircularIndicator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +22,8 @@ class BookCard extends StatelessWidget {
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl: imageUrl,
+            placeholder: (context, url) => const CustomCircularIndicator(),
             errorWidget: (context, url, error) {
-              debugPrint(error.toString());
               return Container(
                 color: Colors.grey.withAlpha(100),
                 child: const Center(

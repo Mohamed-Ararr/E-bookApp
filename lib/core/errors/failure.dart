@@ -13,18 +13,22 @@ class ServerFailure extends Failure {
     switch (dioError.type) {
       case DioErrorType.connectTimeout:
         return ServerFailure("Connection timeout with API server!");
+
       case DioErrorType.sendTimeout:
         return ServerFailure("Send timeout with API server!");
+
       case DioErrorType.receiveTimeout:
         return ServerFailure("Receive timeout with API server!");
+
       case DioErrorType.response:
         return ServerFailure.fromResponse(
             dioError.response!.statusCode, dioError.response!.data);
+
       case DioErrorType.cancel:
         return ServerFailure("Request to API server canceled");
 
       case DioErrorType.other:
-        if (dioError.message.contains("socketException")) {
+        if (dioError.message.contains("SocketException")) {
           return ServerFailure("No internet connection");
         }
         return ServerFailure("Unexpected error, Please try again!");
