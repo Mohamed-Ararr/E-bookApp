@@ -30,9 +30,7 @@ class BookMoreToRead extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.23,
                   child: BookCard(
-                    imageUrl: state.booksList[index].volumeInfo.imageLinks
-                            ?.smallThumbnail ??
-                        noCoverBookImageLink,
+                    bookModel: state.booksList[index],
                   ),
                 ),
               ),

@@ -1,37 +1,45 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
 import '../../../../../../core/utilities/fontStyles.dart';
 
 class BookDetailPreview extends StatelessWidget {
-  const BookDetailPreview({super.key});
+  const BookDetailPreview({super.key, required this.bookPreviewLink});
+
+  final String bookPreviewLink;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.grey,
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+        Link(
+          uri: Uri.parse(bookPreviewLink),
+          builder: (context, followLink) => ElevatedButton(
+            onPressed: followLink,
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.grey,
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
               ),
+              backgroundColor: Colors.white,
+              minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 50),
             ),
-            backgroundColor: Colors.white,
-            minimumSize: Size(MediaQuery.of(context).size.width * 0.35, 50),
-          ),
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.4,
-            alignment: Alignment.center,
-            child: Text(
-              '19.99 £',
-              style: FontStyles.mediumTitleRegular20.copyWith(
-                fontSize: 16,
-                color: Colors.black,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.4,
+              alignment: Alignment.center,
+              child: Text(
+                '19.99 £',
+                style: FontStyles.mediumTitleRegular20.copyWith(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
               ),
             ),
           ),

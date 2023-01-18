@@ -12,8 +12,6 @@ import 'bookCard.dart';
 
 class BooksListView extends StatelessWidget {
   const BooksListView({Key? key}) : super(key: key);
-  final String noCoverBookImageLink =
-      "https://bookopolis.com/img/no_book_cover.jpg";
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +27,7 @@ class BooksListView extends StatelessWidget {
               itemCount: state.booksList.length,
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: BookCard(
-                    imageUrl: state.booksList[index].volumeInfo.imageLinks
-                            ?.smallThumbnail ??
-                        noCoverBookImageLink),
+                child: BookCard(bookModel: state.booksList[index]),
               ),
             ),
           );

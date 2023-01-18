@@ -17,6 +17,7 @@ class BookViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             const BookCustomAppBar(),
@@ -35,7 +36,8 @@ class BookViewBody extends StatelessWidget {
                   : (bookModel.volumeInfo.ratingsCount).toString(),
             ),
             const SizedBox(height: 20),
-            const BookDetailPreview(),
+            BookDetailPreview(
+                bookPreviewLink: bookModel.volumeInfo.previewLink!),
             const SizedBox(height: 30),
             const SeeMoreBooksSection(),
             const SizedBox(height: 10),
