@@ -22,7 +22,13 @@ class CustomAppBar extends StatelessWidget {
           ),
           IconButton(
             splashRadius: 20,
-            onPressed: () => GoRouter.of(context).push(AppRoutes.searchRoute),
+            // onPressed: () => GoRouter.of(context).push(AppRoutes.searchRoute),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: MySearchBar(),
+              );
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
             ),
@@ -30,5 +36,59 @@ class CustomAppBar extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class MySearchBar extends SearchDelegate {
+  // @override
+  // ThemeData appBarTheme(BuildContext context) {
+  //   return ThemeData(
+  //     appBarTheme: AppBarTheme(
+  //       backgroundColor: ,
+  //     ),
+  //   );
+  // }
+
+  @override
+  InputDecorationTheme? get searchFieldDecorationTheme {
+    return const InputDecorationTheme(
+      fillColor: Colors.red,
+      filled: true,
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+      ),
+    );
+  }
+
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+        style: IconButton.styleFrom(
+          backgroundColor: Colors.red,
+          foregroundColor: Colors.green,
+        ),
+        onPressed: () {},
+        icon: const Icon(Icons.close),
+      ),
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back_ios),
+      onPressed: () => GoRouter.of(context).pop(),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return const Text("");
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return const Text("hello world");
   }
 }

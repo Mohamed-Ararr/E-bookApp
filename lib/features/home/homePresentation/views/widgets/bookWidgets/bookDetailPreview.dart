@@ -19,7 +19,7 @@ class BookDetailPreview extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: null,
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.grey,
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -29,7 +29,7 @@ class BookDetailPreview extends StatelessWidget {
                 bottomLeft: Radius.circular(10),
               ),
             ),
-            backgroundColor: Colors.orange,
+            backgroundColor: Colors.white,
             minimumSize: Size(MediaQuery.of(context).size.width * 0.4, 50),
           ),
           child: Container(
@@ -45,10 +45,10 @@ class BookDetailPreview extends StatelessWidget {
           ),
         ),
         Link(
-          target: LinkTarget.blank,
+          target: LinkTarget.defaultTarget,
           uri: Uri.parse(bookPreviewLink),
           builder: (context, followLink) => ElevatedButton(
-            onPressed: followLink,
+            onPressed: bookPreviewLink.isEmpty ? null : followLink,
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.grey,
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -68,7 +68,7 @@ class BookDetailPreview extends StatelessWidget {
                 'Book Link',
                 style: FontStyles.mediumTitleRegular20.copyWith(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: bookPreviewLink.isEmpty ? Colors.white : Colors.black,
                 ),
               ),
             ),
